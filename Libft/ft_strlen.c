@@ -6,11 +6,11 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:39:58 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/10/29 12:13:51 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/10/29 15:25:23 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
