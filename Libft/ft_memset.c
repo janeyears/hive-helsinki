@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 15:08:33 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/10/29 15:34:04 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/10/29 15:42:25 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void *ft_memset(void *dest, int c, size_t n)
         str[i] = c;
         i++;
     }
-    return (dest);
 }
