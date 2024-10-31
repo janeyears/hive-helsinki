@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 10:44:43 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/10/31 10:44:48 by ekashirs         ###   ########.fr       */
+/*   Created: 2024/10/31 11:08:14 by ekashirs          #+#    #+#             */
+/*   Updated: 2024/10/31 11:20:35 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+void *ft_memchr(const void *str, int c, size_t n)
 {
-	size_t	i;
-	char	*temp_d;
-	char	*temp_s;
-
-	i = 0;
-	temp_d = (char *)dest;
-	temp_s = (char *)src;
-	if (!dest && !src)
-		return (0);
-	while (i < n)
-	{
-		temp_d[i] = temp_s[i];
-		i++;
-	}
-	return (dest);
+     size_t          i;
+     unsigned char   *str1;
+     unsigned char   c1;
+  
+     i = 0;
+     str1 = (unsigned char *)str;
+     c1 = (unsigned char)c;
+     while (i < n)
+     {
+         if (str1[i] == c1)
+             return (str1 + i);
+         i++;
+     }
+     return (NULL);
 }
