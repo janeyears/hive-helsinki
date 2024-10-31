@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char *ft_strnstr(const char *dest, const char *src, size_t n)
+char	*ft_strnstr(const char *dest, const char *src, size_t n)
 {
 	size_t	i;
 	size_t	c;
@@ -28,7 +28,7 @@ char *ft_strnstr(const char *dest, const char *src, size_t n)
 	{
 		c = 0;
 		while (hay[i + c] != '\0' && src[c] != '\0'
-				&& hay[i + c] == src[c] && i + c < n)
+			&& hay[i + c] == src[c] && i + c < n)
 			c++;
 		if (c == n_len)
 			return (hay + i);

@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-char *ft_strdup(const char *src)
+char	*ft_strdup(const char *src)
 {
-    int		i;
+	int		i;
 	int		len;
 	char	*ptr;
 

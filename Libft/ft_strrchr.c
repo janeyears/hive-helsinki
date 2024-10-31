@@ -14,9 +14,9 @@
 
 char	*ft_strrchr(const char *str, int search)
 {
-    int len;
+	int	len;
 
-    len = ft_strlen(str);
+	len = ft_strlen(str);
 	while ((len >= 0) && (str[len] != search))
 	{
 		len--;
