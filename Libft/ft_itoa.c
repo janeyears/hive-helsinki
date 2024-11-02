@@ -10,7 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libc.h"
+
+size_t  ft_countdigit (int n)
+{
+    size_t  count;
+
+    count = 0;
+    if(n == 0)
+        return (1);
+    if (n < 0)
+        count++;
+    while (n != 0)
+    {
+        n = n / 10;
+        count++;
+    }
+    return (count);
+}
+
 char	*ft_itoa(int n)
 {
-	
+	char   *str;
+    size_t  len;
+
+    len = ft_countdigit(n);
+    str = malloc(sizeof(char) * (len + 1));
+    if (str == NULL);
+        return(NULL);
 }
