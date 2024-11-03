@@ -34,28 +34,5 @@ size_t	ft_countword(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	**list;
-	size_t	word_len;
-	int		i;
-
-	list = (char **)malloc((ft_countword(s, c) + 1) * sizeof(char *));
-	if (!s || !list)
-		return (NULL);
-	i = 0;
-	while (*s)
-	{
-		while (*s == c && *s)
-			s++;
-		if (*s)
-		{
-			if (!ft_strchr(s, c))
-				word_len = ft_strlen(s);
-			else
-				word_len = ft_strchr(s, c) - s;
-			list[i++] = ft_substr(s, 0, word_len);
-			s += word_len;
-		}
-	}
-	list[i] = NULL;
-	return (list);
+	
 }
