@@ -34,3 +34,13 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
+
+int main(void)
+{
+	char str[] = "   -1234";
+	printf("The output of original atoi(): %d \n", atoi(str));
+	printf("The output of my ft_atoi(): %d \n", ft_atoi(str));
+	return (0);
+}
+
+

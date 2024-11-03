@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 size_t  ft_countdigit (int n)
 {
@@ -33,9 +33,27 @@ char	*ft_itoa(int n)
 {
 	char   *str;
     size_t  len;
+    long    numb;
 
+    numb = n;
     len = ft_countdigit(n);
+    if (n < 0)
+        numb *= -1;
     str = malloc(sizeof(char) * (len + 1));
     if (str == NULL);
         return(NULL);
+    str[len] = '\0';
+    if (numb == 0)
+        str[0] = '0';
+    else
+    {
+        while (len--, numb != 0)
+        {
+            str[len] = (numb % 10) + '0';
+            numb = (numb - (numb % 10)) / 10;
+        }
+        if (n < 0)
+            str[len] = '-';
+    }
+    return (str);
 }
