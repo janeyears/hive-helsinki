@@ -6,13 +6,13 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:43:52 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/10/29 12:32:02 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/04 11:37:16 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int arg)
+int	ft_isdigit(int c)
 {
-	if (arg >= 48 && arg <= 57)
+	if (c >= 48 && c <= 57)
 		return (1);
 	return (0);
 }

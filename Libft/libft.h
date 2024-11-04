@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdio.h>
+#include <unistd.h>
 
 typedef struct s_list
 {
@@ -12,7 +12,7 @@ struct s_list *next;
 } t_list;
 
 int	ft_atoi(const char *str);
-void	bzero(void *dest, size_t n);
+void	ft_bzero(void *dest, size_t n);
 void	*ft_calloc(size_t number, size_t size);
 int	ft_isalnum(int c);
 int	ft_isalpha(int c);

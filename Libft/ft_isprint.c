@@ -6,13 +6,13 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 14:45:30 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/10/29 11:23:55 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/04 11:46:50 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int arg)
+int	ft_isprint(int c)
 {
-	if (arg >= 32 && arg <= 126)
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }

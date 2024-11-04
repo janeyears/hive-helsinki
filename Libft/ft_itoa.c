@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:43:18 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/01 12:41:09 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:05:11 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
     if (n < 0)
         numb *= -1;
     str = malloc(sizeof(char) * (len + 1));
-    if (str == NULL);
+    if (str == NULL)
         return(NULL);
     str[len] = '\0';
     if (numb == 0)
