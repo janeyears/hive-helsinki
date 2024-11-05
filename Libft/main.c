@@ -299,16 +299,12 @@ void	test_ft_memcpy(void)
 	ft_memcpy(dest, src, strlen(src));
 	printf("Test 1: copy the whole src: %s\n", dest);
 
-	char dest2[20];
-	ft_memcpy(dest2, src, 0);
-	printf("Test 2: copy 0 chars: %s\n", dest2);
-
 	char *null_dest = NULL;
     char *null_src = NULL;
     if (ft_memcpy(null_dest, null_src, 10) == NULL)
-		printf("✅ Test 3 - NULL Dest and Src: Passed\n");
+		printf("✅ Test 2 - NULL Dest and Src: Passed\n");
     else
-		printf("❌ Test 3 - NULL Dest and Src: Failed\n");
+		printf("❌ Test 2 - NULL Dest and Src: Failed\n");
 }
 
 void	test_ft_memmove(void)
@@ -328,22 +324,19 @@ void	test_ft_memmove(void)
 
 void	test_ft_memset(void) 
 {
-	char buffer[50];
+	char buffer1[35];
 
 	printf("➡️ Test cases for ft_memset\n");
 
-	ft_memset(buffer, 'A', 10);
-	printf("Test 1: %s\n", buffer); 
+	ft_memset(buffer1, 'A', 15);
+	printf("Test 1: %s\n", buffer1);
 
-	ft_memset(buffer, '\0', 10);
-	printf("Test 2: '%s'\n", buffer); 
-
-	ft_memset(buffer, 66, 50); 
-	printf("Test 3: %s\n", buffer); 
+	ft_memset(buffer1, '\0', 10);
+	printf("Test 2: '%s'\n", buffer1); 
 
 	char buffer2[10] = "Hello!";
 	ft_memset(buffer2, 'Z', 0);
-	printf("Test 4: %s\n", buffer2); 
+	printf("Test 3: %s\n", buffer2); 
 
 }
 
@@ -378,13 +371,13 @@ void	test_ft_putnbr_fd(void)
 
 void	test_ft_putstr_fd(void)
 {
-	printf("➡️ Test cases for ft_putnbr_fd\n");
-	ft_putstr_fd("Hello world", 1);
+	printf("➡️ Test cases for ft_putstr_fd\n");
+	ft_putstr_fd("Hello world\n", 1);
 }
 
 void	test_ft_strchr(void) 
 {
-	printf("➡️ Test cases for ft_putstr_fd\n");
+	printf("➡️ Test cases for ft_strchr_fd\n");
 	const char *str1 = "Hello, World!";
 	char search1 = 'W';
 	char *result1 = ft_strchr(str1, search1);
@@ -416,7 +409,7 @@ void	test_ft_strdup(void)
 		{
 			printf("Test case %d: Original: \"%s\", Duplicated: \"%s\"\n", i + 1, test_cases[i], dup);
 			if (strcmp(test_cases[i], dup) == 0) 
-                		printf("✅ Test %d passed\n", i + 1);
+                printf("✅ Test %d passed\n", i + 1);
 			else 
 				printf("❌ Test %d failed\n", i + 1);
             		free(dup);
@@ -432,10 +425,238 @@ void	to_uppercase(unsigned int i, char *c)
 }
 void	test_ft_striteri(void)
 {
+	printf("➡️ Test cases for ft_striteri\n");
 	char str[] = "hello world";
 	printf("Original string: %s\n", str);
 	ft_striteri(str, to_uppercase);
 	printf("Modified string: %s\n", str);
+}
+
+void test_ft_strjoin(void)
+{
+
+	printf("➡️ Test cases for ft_strjoin\n");
+    char *test1 = ft_strjoin("Hello ", "World!");
+	char *test2 = ft_strjoin("", "World!");
+	char *test3 = ft_strjoin("", "");
+	char *test4 = ft_strjoin("123", "456");
+	
+
+	char *tests[] = {test1, test2, test3, test4};
+	char *expected[] = {"Hello World!", "World!", "", "123456"};
+
+	for (int i = 0; i < 4; i++)
+	{
+		if (tests[i] != NULL && strcmp(tests[i], expected[i]) == 0)
+			printf("✅ Test %d passed\n", i + 1);
+		else
+			printf("❌ Test %d failed\n", i + 1);
+		free(tests[i]);
+	}
+}
+void test_ft_strlcat(void)
+{
+
+	printf("➡️ Test cases for ft_strlcat\n");
+    char dest[20];
+    const char *src;
+    size_t size;
+    size_t result;
+
+    strcpy(dest, "Hello");
+    src = " World";
+    size = 20;
+    result = ft_strlcat(dest, src, size);
+    printf("Test 1: %s, Expected: Hello World, Result Length: %zu, Expected Length: %zu\n", dest, result, ft_strlen("Hello World"));
+
+    strcpy(dest, "Hello");
+    src = " World";
+    size = 10;  // Smaller than length of dest + src
+    result = ft_strlcat(dest, src, size);
+    printf("Test 2: %s, Expected: Hello Wor, Result Length: %zu, Expected Length: %zu\n", dest, result, ft_strlen("Hello") + ft_strlen(" World"));
+
+    strcpy(dest, "Hello");
+    src = " World";
+    size = 0;
+    result = ft_strlcat(dest, src, size);
+    printf("Test 3: %s, Expected: Hello, Result Length: %zu, Expected Length: %zu\n", dest, result, ft_strlen(" World"));
+}
+
+void test_ft_strlcpy(void)
+{
+
+	printf("➡️ Test cases for ft_strlcpy\n");
+    char dest[100];
+    size_t result;
+
+    const char *src1 = "Hello, World!";
+    result = ft_strlcpy(dest, src1, sizeof(dest));
+    printf("Test Case 1:\n");
+    printf("Source: '%s', Destination: '%s', Length returned: %zu\n", src1, dest, result);
+
+    const char *src2 = "Hello";
+    result = ft_strlcpy(dest, src2, 6); 
+    printf("\nTest Case 2:\n");
+    printf("Source: '%s', Destination: '%s', Length returned: %zu\n", src2, dest, result);
+
+    const char *src3 = "Hello, World!";
+    result = ft_strlcpy(dest, src3, 6); 
+    printf("\nTest Case 3:\n");
+    printf("Source: '%s', Destination: '%s', Length returned: %zu\n", src3, dest, result);
+
+}
+void test_ft_strlen()
+{
+	printf("➡️ Test cases for ft_strlen\n");
+
+    const char *tests[] = {"", "Hello", "Test with newline\n", "Special chars !@#$^&*", NULL};
+
+    // Expected results corresponding to the test cases
+    size_t expected[] = {0, 5, 18, 21};
+
+    for (int i = 0; tests[i] != NULL; i++)
+    {
+        size_t result = ft_strlen(tests[i]);
+        if (result == expected[i])
+        {
+            printf("✅ Test passed for input \"%s\": expected %zu, got %zu\n", tests[i], expected[i], result);
+        }
+        else
+        {
+            printf("❌ Test failed for input \"%s\": expected %zu, got %zu\n", tests[i], expected[i], result);
+        }
+    }
+}
+char example_function(unsigned int index, char c) {
+    return (c + index);
+}
+
+void test_ft_strmapi(void)
+{
+	printf("➡️ Test cases for ft_strmapi\n");
+	const char *input = "abcdef";
+    char *result = ft_strmapi(input, example_function);
+    
+    if (result) {
+        printf("Original: %s\n", input);
+        printf("✅ Transformed: %s\n", result);
+        free(result); 
+    } else {
+        printf("❌ Failed to allocate memory for the result.\n");
+    }
+}
+void test_ft_strncmp(void) 
+{
+
+	printf("➡️ Test cases for ft_strncmp\n");
+
+    const char *tests[][3] = 
+	{
+        {"abc", "abc", "3"},
+        {"abc", "abcd", "3"},
+        {"abc", "abx", "3"},
+        {"abc", "", "3"},
+    };
+
+    for (int i = 0; i < 4; i++) {
+        const char *s1 = tests[i][0];
+        const char *s2 = tests[i][1];
+        size_t n = atoi(tests[i][2]);
+
+        int result = ft_strncmp(s1, s2, n);
+        int expected = strncmp(s1, s2, n);
+
+        printf("Test %d: ft_strncmp(\"%s\", \"%s\", %zu) = %d, strncmp = %d\n", i + 1, s1, s2, n, result, expected);
+    }
+}
+
+void test_ft_strnstr(void)
+{
+
+	printf("➡️ Test cases for ft_strnstr\n");
+	char *result;
+    result = ft_strnstr("Hello, world!", "world", 13);
+    if (result) 
+        printf("Test 1: %s\n", result);
+    else 
+        printf("Test 1: NULL\n");
+
+    result = ft_strnstr("Hello, world!", "Goodbye", 13);
+    if (result) 
+        printf("Test 2: %s\n", result);
+    else 
+        printf("Test 2: NULL. Needle not found\n");
+
+
+    result = ft_strnstr("Hello, world!", "Hello", 13);
+    if (result) 
+        printf("Test 3: %s\n", result);
+	else 
+        printf("Test 3: NULL\n");
+
+    result = ft_strnstr("Hello, world!", "", 13);
+    if (result) 
+        printf("Test 4: %s\n", result);
+	else 
+        printf("Test 4: NULL\n");
+}
+
+void test_ft_strrchr() {
+
+	printf("➡️ Test cases for ft_strrchr\n");
+    const char *str1 = "Hello World";
+    const char *str2 = "abcabcabc2";
+    
+    char *result;
+
+    result = ft_strrchr(str1, 'o');
+    printf("Test 1 - Expected: %s, Got: %s\n", strrchr(str1, 'o'), result);
+    
+    result = ft_strrchr(str1, 'z');
+    printf("Test 2 - Expected: %p, Got: %p\n", strrchr(str1, 'z'), result);
+
+    result = ft_strrchr(str2, 'a');
+    printf("Test 3 - Expected: %s, Got: %s\n", strrchr(str2, 'a'), result);
+}
+
+void test_ft_substr(void) 
+{
+
+	printf("➡️ Test cases for ft_substr\n");
+    char *result;
+
+    result = ft_substr("Hello, World!", 7, 5);
+    printf("Test 1: %s\n", result);
+    free(result);
+
+    result = ft_substr("Hello, World!", 15, 5);
+    printf("Test 2: '%s'\n", result);
+    free(result);
+
+    result = ft_substr("Hello, World!", 0, 0);
+    printf("Test 3: '%s'\n", result);
+    free(result);
+
+}
+
+void test_ft_tolower() 
+{
+	printf("➡️ Test cases for ft_tolower\n");
+	printf("ft_tolower('A') = '%c' (Expected: 'a')\n", ft_tolower('A'));
+    printf("ft_tolower('a') = '%c' (Expected: 'a')\n", ft_tolower('a'));
+    printf("ft_tolower('1') = '%c' (Expected: '1')\n", ft_tolower('1'));
+    printf("ft_tolower('@') = '%c' (Expected: '@')\n", ft_tolower('@'));
+	
+}
+
+void test_ft_toupper() 
+{
+	printf("➡️ Test cases for ft_toupper\n");
+	printf("ft_toupper('A') = '%c' (Expected: 'A')\n", ft_toupper('A'));
+    printf("ft_toupper('a') = '%c' (Expected: 'A')\n", ft_toupper('a'));
+    printf("ft_toupper('1') = '%c' (Expected: '1')\n", ft_toupper('1'));
+    printf("ft_toupper('@') = '%c' (Expected: '@')\n", ft_toupper('@'));
+	
 }
 
 
@@ -461,6 +682,18 @@ int main(void)
 	test_ft_strchr();
 	test_ft_strdup();
 	test_ft_striteri();
+	test_ft_strjoin();
+	test_ft_strlcat();
+	test_ft_strlcpy();
+	test_ft_strlen();
+	test_ft_strmapi();
+	test_ft_strncmp();
+	test_ft_strnstr();
+	test_ft_strrchr();
+	test_ft_substr();
+	test_ft_tolower();
+	test_ft_toupper();
+
 	
 	return(0);
 }

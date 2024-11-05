@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:40:44 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/01 16:14:48 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:01:44 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ size_t	ft_countword(char const *s, char c)
 	}
 	return (count);
 }
-
 
 char	**ft_split(char const *s, char c)
 {

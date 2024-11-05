@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:44:08 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/04 17:03:10 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/05 15:15:43 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
-    
+
 	if (!s || !f)
-		return;
+		return ;
 	i = 0;
 	while (s[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:45:13 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/10/31 10:45:16 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:48:02 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *str, int search)
 	}
 	if (str[len] == search)
 	{
-		return ((char *)str[len]);
+		return ((char *)&str[len]);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:06:10 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/10/31 14:34:43 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/05 14:52:12 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		}
 		i++;
 	}
-	newstr[j] = "\0";
+	newstr[j] = '\0';
 	return (newstr);
 }
