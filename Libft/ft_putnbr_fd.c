@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:46:23 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/04 15:29:49 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/06 14:32:11 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == -2147483648)
-		write(1, "-2147483648", 11);
-	else
+	long long	c;
+
+	c = n;
+	if (n < 0)
 	{
-		if (n < 0)
-		{
-			ft_putchar_fd('-', fd);
-			n = -n;
-		}
-		if (n >= 10)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
+		ft_putchar_fd('-', fd);
+		c = -c;
 	}
+	if (c >= 10)
+		ft_putnbr_fd(c / 10, fd);
+	ft_putchar_fd(c % 10 + '0', fd);
 }
