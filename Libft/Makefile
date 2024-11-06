@@ -47,7 +47,7 @@ OBJECTS	=	$(SOURCES:.c=.o)
 
 all:	$(NAME)
 
-$(NAME):	$(OBJECTS) $(INCLUDE)
+$(NAME):	$(OBJECTS) $(INCLUDE) 
 			$(AR) $(NAME) $(OBJECTS)
 
 .c.o:	$(CC) $(FLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
