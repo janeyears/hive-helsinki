@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:40:44 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/06 11:08:01 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/06 14:00:48 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	ft_countword(char const *s, char c)
 	return (count);
 }
 
-int ft_check_malloc(char **arr, int position, size_t size)
+int	ft_check_malloc(char **arr, int position, size_t size)
 {
 	int	i;
 
@@ -50,10 +50,10 @@ int ft_check_malloc(char **arr, int position, size_t size)
 	return (0);
 }
 
-int ft_fill_arr(char **arr, char const *s, char c)
+int	ft_fill_arr(char **arr, char const *s, char c)
 {
 	size_t	len;
-	int	i;
+	int		i;
 
 	i = 0;
 	while (*s)
@@ -93,5 +93,4 @@ char	**ft_split(char const *s, char c)
 	if (ft_fill_arr(arr, s, c))
 		return (NULL);
 	return (arr);
-	
 }
