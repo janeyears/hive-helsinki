@@ -3,7 +3,7 @@
 #include <limits.h>
 
 
-int	test_ft_atoi(void)
+void	test_ft_atoi(void)
 {
 	const char test1[] = "123";
 	const char test2[] = "-123";
@@ -30,11 +30,9 @@ int	test_ft_atoi(void)
 		else
 			printf("❌ Test %d failed\n", i + 1);
 	}
-
-	return (0);
 }
 
-int	test_ft_bzero(void)
+void	test_ft_bzero(void)
 {
 	char str[] = "abcdcde";
 	char str2[] = "abcdcde";
@@ -48,10 +46,9 @@ int	test_ft_bzero(void)
 	printf("String before my ft_bzero: %c, %c, %c, %c, %c, %c \n", str2[0], str2[1], str2[2], str2[3], str2[4], str2[5]);
 	ft_bzero(str2, c);
 	printf("String after my ft_bzero: %c, %c, %c, %c, %c, %c \n", str2[0], str2[1], str2[2], str2[3], str2[4], str2[5]);
-	return(0);
 }
 
-int	test_ft_calloc(void)
+void	test_ft_calloc(void)
 {
 	printf("➡️ Test cases for ft_calloc\n");
 
@@ -62,7 +59,6 @@ int	test_ft_calloc(void)
             if (arr[i] != 0) {
                 printf("❌ Test 1 Failed: Memory not initialized to zero.\n");
                 free(arr);
-                return 1;
             }
         }
         printf("✅ Test 1 Memory initialized to zero: Passed\n");
@@ -78,11 +74,10 @@ int	test_ft_calloc(void)
         printf("❌ Test 2 Failed: Expected NULL but got a pointer.\n");
       free(arr);
     }
-	return 0;
 }
 
 
-int	test_ft_isalnum(void)
+void	test_ft_isalnum(void)
 {
 	int test1 = '5';
 	int test2 = 'F';
@@ -103,11 +98,9 @@ int	test_ft_isalnum(void)
 		else
 			printf("❌ Test %d failed\n", i + 1);
 	}
-
-	return (0);
 }
 
-int	test_ft_isalpha(void)
+void	test_ft_isalpha(void)
 {
 	int test1 = '5';
 	int test2 = 'F';
@@ -129,10 +122,9 @@ int	test_ft_isalpha(void)
 			printf("❌ Test %d failed\n", i + 1);
 	}
 
-	return (0);
 }
 
-int	test_ft_isascii(void)
+void	test_ft_isascii(void)
 {
 	int test1 = 0;
 	int test2 = -127;
@@ -154,10 +146,9 @@ int	test_ft_isascii(void)
 			printf("❌ Test %d failed\n", i + 1);
 	}
 
-	return (0);
 }
 
-int	test_ft_isdigit(void)
+void	test_ft_isdigit(void)
 {
 	int test1 = '0';
 	int test2 = '9';
@@ -178,11 +169,9 @@ int	test_ft_isdigit(void)
 		else
 			printf("❌ Test %d failed\n", i + 1);
 	}
-
-	return (0);
 }
 
-int	test_ft_isprint(void)
+void test_ft_isprint(void)
 {
 	int test1 = 'H';
 	int test2 = 30;
@@ -203,11 +192,9 @@ int	test_ft_isprint(void)
 		else
 			printf("❌ Test %d failed\n", i + 1);
 	}
-
-	return (0);
 }
 
-int	test_ft_itoa(void)
+void	test_ft_itoa(void)
 {
 	int test1 = 0;
 	int test2 = 1;
@@ -231,8 +218,6 @@ int	test_ft_itoa(void)
 		else
 			printf("❌ Test %d failed\n", i + 1);
 	}
-
-	return (0);
 }
 
 void	test_ft_memchr(void)
@@ -373,6 +358,31 @@ void	test_ft_putstr_fd(void)
 {
 	printf("➡️ Test cases for ft_putstr_fd\n");
 	ft_putstr_fd("Hello world\n", 1);
+}
+
+void test_ft_split(void) 
+{
+    char *test_cases[] = {"hello world test", "hello", ""};
+    char delimiter = ' ';
+    int num_cases = 3;
+	printf("➡️ Test cases for ft_split\n");
+    for (int i = 0; i < num_cases; i++) {
+        printf("Test case %d: \"%s\"\n", i + 1, test_cases[i]);
+
+        char **result = ft_split(test_cases[i], delimiter);
+        if (result == NULL) {
+            printf("Result is NULL\n");
+        } else {
+            int j = 0;
+            while (result[j] != NULL) {
+                printf("word[%d]: '%s'\n", j, result[j]);
+                free(result[j]);
+                j++;
+            }
+            free(result);
+        }
+        printf("\n");
+    }
 }
 
 void	test_ft_strchr(void) 
@@ -619,6 +629,21 @@ void test_ft_strrchr() {
     printf("Test 3 - Expected: %s, Got: %s\n", strrchr(str2, 'a'), result);
 }
 
+void test_ft_strtrim(void) 
+{
+    char *result;
+	printf("➡️ Test cases for ft_strtrim\n");
+    result = ft_strtrim("!!Hello World!!", "!");
+    printf("Input: \"!!Hello World!!\", Set: \"!\"\n");
+    printf("Result: \"%s\"\n", result);
+    if (result && strcmp(result, "Hello World") == 0) {
+        printf("✅ PASS\n");
+    } else {
+        printf("❌ FAIL (Expected: \"Hello World\")\n");
+    }
+    free(result);
+}
+
 void test_ft_substr(void) 
 {
 
@@ -659,7 +684,6 @@ void test_ft_toupper()
 	
 }
 
-
 int main(void)
 {
 	test_ft_atoi();
@@ -676,9 +700,11 @@ int main(void)
 	test_ft_memcpy();
 	test_ft_memmove();
 	test_ft_memset();
+	test_ft_putchar_fd();
 	test_ft_putendl_fd();
 	test_ft_putnbr_fd();
 	test_ft_putstr_fd();
+	test_ft_split();
 	test_ft_strchr();
 	test_ft_strdup();
 	test_ft_striteri();
@@ -690,10 +716,9 @@ int main(void)
 	test_ft_strncmp();
 	test_ft_strnstr();
 	test_ft_strrchr();
+	test_ft_strtrim();
 	test_ft_substr();
 	test_ft_tolower();
 	test_ft_toupper();
-
-	
 	return(0);
 }

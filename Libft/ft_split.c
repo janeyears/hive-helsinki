@@ -6,7 +6,7 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:40:44 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/05 16:18:14 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/06 11:08:01 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,4 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (arr);
 	
-}
-
-int main ()
-{
-	const char *str = "Hello world and  welcome";
-	char	**v = ft_split(str, ' ');
-
-	while (*v)
-		printf("%s \n", *v++);
-	return (0);
 }
