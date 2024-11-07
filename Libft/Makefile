@@ -47,6 +47,18 @@ SOURCES	=	ft_atoi.c \
 
 OBJECTS	=	$(SOURCES:.c=.o)
 
+BONUS	=	ft_lstadd_back_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstmap_bonus.c \
+			ft_lstnew_bonus.c \
+			ft_lstsize_bonus.c
+
+B_OBJECT	=	$(BONUS:.c=.o)
+
 all:	$(NAME)
 
 $(NAME):	$(OBJECTS) $(INCLUDE) 
@@ -55,11 +67,14 @@ $(NAME):	$(OBJECTS) $(INCLUDE)
 .c.o:	$(CC) $(FLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 
 clean:
-		$(RM) $(OBJECTS)
+		$(RM) $(OBJECTS) $(B_OBJS)
 
 fclean:	clean
 		$(RM) $(NAME)
 
 re:	fclean all
+
+bonus:	${B_OBJECT} $(INCLUDE) 
+		$(AR) ${NAME} ${OBJS_BONUS}
 
 .PHONY:	all clean fclean re
