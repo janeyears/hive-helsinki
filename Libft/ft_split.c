@@ -6,13 +6,13 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:40:44 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/08 12:26:30 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:45:13 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_countword(char const *s, char c)
+static size_t	ft_countword(char const *s, char c)
 {
 	size_t	count;
 
@@ -31,7 +31,7 @@ size_t	ft_countword(char const *s, char c)
 	return (count);
 }
 
-int	ft_check_malloc(char **arr, int position, size_t size)
+static int	ft_check_malloc(char **arr, int position, size_t size)
 {
 	int	i;
 
@@ -50,7 +50,7 @@ int	ft_check_malloc(char **arr, int position, size_t size)
 	return (0);
 }
 
-int	ft_fill_arr(char **arr, char const *s, char c)
+static int	ft_fill_arr(char **arr, char const *s, char c)
 {
 	size_t	len;
 	int		i;

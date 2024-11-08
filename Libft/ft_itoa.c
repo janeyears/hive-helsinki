@@ -6,13 +6,13 @@
 /*   By: ekashirs <ekashirs@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 11:43:18 by ekashirs          #+#    #+#             */
-/*   Updated: 2024/11/05 15:07:53 by ekashirs         ###   ########.fr       */
+/*   Updated: 2024/11/08 15:44:28 by ekashirs         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_countdigit(int n)
+static size_t	ft_countdigit(int n)
 {
 	size_t	count;
 
