@@ -2,8 +2,6 @@ NAME = libft.a
 CC = cc
 FLAGS  = -Wall -Wextra -Werror
 
-all : $(NAME)
-
 RM	=	rm -f
 
 AR	=	ar -rcs
@@ -53,28 +51,28 @@ BONUS	=	ft_lstadd_back_bonus.c \
 			ft_lstdelone_bonus.c \
 			ft_lstiter_bonus.c \
 			ft_lstlast_bonus.c \
-			ft_lstmap_bonus.c \
 			ft_lstnew_bonus.c \
 			ft_lstsize_bonus.c
 
 B_OBJECT	=	$(BONUS:.c=.o)
 
-all:	$(NAME)
+all: $(NAME)
 
-$(NAME):	$(OBJECTS) $(INCLUDE) 
-			$(AR) $(NAME) $(OBJECTS)
+$(NAME): $(OBJECTS)
+	$(AR) $(NAME) $(OBJECTS)
 
-.c.o:	$(CC) $(FLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
+%.o: %.c $(INCLUDE)
+	$(CC) $(FLAGS) -I. -c $< -o $@
 
 clean:
-		$(RM) $(OBJECTS) $(B_OBJS)
+	$(RM) $(OBJECTS) $(B_OBJECT)
 
-fclean:	clean
-		$(RM) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
 
-re:	fclean all
+re: fclean all
 
-bonus:	${B_OBJECT} $(INCLUDE) 
-		$(AR) ${NAME} ${OBJS_BONUS}
+bonus: $(B_OBJECT)
+	$(AR) $(NAME) $(B_OBJECT)
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re bonus

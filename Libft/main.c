@@ -1,6 +1,7 @@
 #include "libft.h"
 #include <string.h>
 #include <limits.h>
+#include <stdio.h>
 
 
 void	test_ft_atoi(void)
@@ -217,6 +218,7 @@ void	test_ft_itoa(void)
 			printf("✅ Test %d passed\n", i + 1);
 		else
 			printf("❌ Test %d failed\n", i + 1);
+		free (result);
 	}
 }
 
@@ -277,7 +279,7 @@ void	test_ft_memcmp(void)
 void	test_ft_memcpy(void)
 {
 	char src[] = "Hello, World!";
-    char dest[20];
+    char dest[20] = "";
 
 	printf("➡️ Test cases for ft_memcpy\n");
 
@@ -309,7 +311,7 @@ void	test_ft_memmove(void)
 
 void	test_ft_memset(void) 
 {
-	char buffer1[35];
+	char buffer1[35] = "";
 
 	printf("➡️ Test cases for ft_memset\n");
 
