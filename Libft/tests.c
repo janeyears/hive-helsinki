@@ -53,7 +53,7 @@ void	test_ft_calloc(void)
 {
 	printf("➡️ Test cases for ft_calloc\n");
 
-	int *arr = (int *)calloc(10, sizeof(int));
+	int *arr = (int *)ft_calloc(10, sizeof(int));
     if (arr) {
         printf("✅ Test 1 Passed: Allocated 10 integers.\n");
         for (int i = 0; i < 10; i++) {
