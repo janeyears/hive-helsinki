@@ -18,6 +18,8 @@ void	*ft_calloc(size_t number, size_t size)
 	size_t	bytes;
 
 	bytes = number * size;
+	if (size == 0)
+		return (NULL);
 	if (size && ((bytes / size) != number))
 		return (NULL);
 	ptr = malloc(bytes);
